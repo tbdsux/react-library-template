@@ -2,15 +2,23 @@
   "name": "react-library-template",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
-  "unpkg": "dist/index.umd.js",
-  "types": "dist/typings/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.modern.js",
+  "unpkg": "./dist/index.umd.js",
+  "types": "./dist/typings/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.modern.js",
+      "require": "./dist/index.js",
+      "types": "./dist/typings/index.d.ts"
+    }
+  },
+  "repository": "TheBoringDude/react-library-template",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "huskyinstall": "husky install",
+    "postinstall": "husky install",
     "precommit": "lint-staged",
     "pack": "npm run build && npm pack",
     "prepublishOnly": "npm run build",
